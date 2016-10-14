@@ -16,7 +16,8 @@
     "style-loader": "0.13.1",
     "postcss-loader": "0.13.0",
     "node-sass": "3.10.1",
-    "autoprefixer": "6.5.1"
+    "autoprefixer": "6.5.1",
+    "jasmine": "2.5.2"
   },
 
   "dependencies": {
@@ -29,7 +30,8 @@
   "scripts": {
     "start": "webpack-dev-server --inline --hot",
     "build": "webpack --progress --display-error-details",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "test": "jasmine"
   },
 
   "author": "Justin Bull",
