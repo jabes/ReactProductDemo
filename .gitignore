@@ -2,6 +2,7 @@
 
 .*
 !.gitignore
+!.editorconfig
 
 dist/
 node_modules/
