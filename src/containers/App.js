@@ -5,6 +5,6 @@ const App = () => (
         <h1>BBYC ASSESSMENT</h1>
         <p>Hello World</p>
     </div>
-)
+);
 
 export default App
