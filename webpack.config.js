@@ -6,6 +6,12 @@ const srcPath = path.resolve(__dirname, 'src');
 const distPath = path.resolve(__dirname, 'dist');
 const publicPath = path.resolve(__dirname, 'public');
 
+const excludePaths = [
+  nodeModulesPath,
+  distPath,
+  publicPath
+];
+
 module.exports = {
   entry: [
     path.resolve(srcPath, 'index.js')
@@ -16,18 +22,21 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
+    preLoaders: [
+      {test: /\.js$/, loader: 'eslint', exclude: excludePaths},
+    ],
     loaders: [
-      {test: /\.js$/, loader: 'babel', exclude: [nodeModulesPath, distPath]},
-      {test: /\.css$/, loader: 'style!css!postcss'},
-      {test: /\.scss$/, loader: 'style!css!postcss!sass'}
+      {test: /\.js$/, loader: 'babel', exclude: excludePaths},
+      {test: /\.css$/, loader: 'style!css!postcss', exclude: excludePaths},
+      {test: /\.scss$/, loader: 'style!css!postcss!sass', exclude: excludePaths}
     ]
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    })
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: {
+    //     warnings: false
+    //   }
+    // })
   ],
   resolve: {
     extensions: ['', '.js', '.scss'],

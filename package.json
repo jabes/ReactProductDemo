@@ -17,7 +17,12 @@
     "postcss-loader": "0.13.0",
     "node-sass": "3.10.1",
     "autoprefixer": "6.5.1",
-    "jasmine": "2.5.2"
+    "jasmine": "2.5.2",
+    "eslint": "3.7.1",
+    "eslint-loader": "1.5.0",
+    "eslint-config-eslint": "3.0.0",
+    "eslint-plugin-import": "2.0.1",
+    "eslint-plugin-react": "6.4.1"
   },
 
   "dependencies": {
@@ -31,7 +36,8 @@
     "start": "webpack-dev-server --inline --hot",
     "build": "webpack --progress --display-error-details",
     "watch": "webpack --watch",
-    "test": "jasmine"
+    "test": "jasmine",
+    "lint": "eslint src --debug"
   },
 
   "author": "Justin Bull",
