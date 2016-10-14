@@ -7,9 +7,10 @@
 * Babel/ES6
 * React/Redux
 
-#### How To Install
+#### How To Use
 
-1. `npm install` : Install required modules
-3. `npm start` : Starts Webpack dev server
-2. `npm run build` : Bundles assets for browser
-2. `npm run watch` : Watches for file changes and rebuilds
+* `npm install` : Install required modules
+* `npm start` : Start webpack dev server
+* `npm test` : Run unit tests
+* `npm run build` : Bundle assets for browser
+* `npm run watch` : Watch for file changes and rebuild
