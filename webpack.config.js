@@ -23,12 +23,13 @@ module.exports = {
   },
   module: {
     preLoaders: [
-      {test: /\.js$/, loader: 'eslint', exclude: excludePaths},
+      {test: /\.js$/, loader: 'eslint'},
+      {test: /\.json$/, loader: 'json'},
     ],
     loaders: [
       {test: /\.js$/, loader: 'babel', exclude: excludePaths},
-      {test: /\.css$/, loader: 'style!css!postcss', exclude: excludePaths},
-      {test: /\.scss$/, loader: 'style!css!postcss!sass', exclude: excludePaths}
+      {test: /\.css$/, loader: 'style!css!postcss'},
+      {test: /\.scss$/, loader: 'style!css!postcss!sass'}
     ]
   },
   plugins: [
