@@ -1,16 +1,14 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import {Router, Route, IndexRoute, browserHistory} from 'react-router'
+import {Router, Route, IndexRoute, hashHistory} from 'react-router'
 
 import App from './components/App'
-import Home from './components/Home'
-import Product from './components/Product'
+import Products from './components/Products'
 
 ReactDom.render(
-  <Router history={browserHistory}>
+  <Router history={hashHistory}>
     <Route path="/" component={App}>
-      <IndexRoute component={Home}/>
-      <Route path="product" component={Product}/>
+      <IndexRoute component={Products}/>
     </Route>
   </Router>,
   document.getElementById('app')
