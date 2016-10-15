@@ -1,0 +1,17 @@
+[
+  { "id": 1, "name": "Cell Phones" },
+  { "id": 2, "name": "Computers, Tablets & eReaders" },
+  { "id": 3, "name": "Ink, Office Supplies & Telephones" },
+  { "id": 4, "name": "TV & Home Theatre" },
+  { "id": 5, "name": "Cameras, Camcorders & Drones" },
+  { "id": 6, "name": "Audio & Car Electronics" },
+  { "id": 7, "name": "Smart Home Control & Automation" },
+  { "id": 8, "name": "Wearable Technology" },
+  { "id": 9, "name": "Musical Instruments" },
+  { "id": 10, "name": "Video Games, Movies & TV Shows" },
+  { "id": 11, "name": "Appliances" },
+  { "id": 12, "name": "Baby, Maternity & Beauty" },
+  { "id": 13, "name": "Fitness, Luggage & Fashion" },
+  { "id": 14, "name": "Home, Furniture & Kitchen" },
+  { "id": 15, "name": "Toys, Sports & Recreation" }
+]

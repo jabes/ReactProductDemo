@@ -1,0 +1,28 @@
+[
+  {
+    "category_id": 1,
+    "name": "Fido LG G5 32GB Smartphone",
+    "price": 49.99,
+    "description": "With a sleek metal design, the LG G5 is the perfect combination of smart innovation and premium style. Three integrated cameras including an impressive 16MP rear camera and a secondary 8MP camera with a wide angle lens capture moments with pristine clarity. The modular functionality lets you combine your phone with numerous LG Friends accessories.",
+    "meta": {
+      "model": "G5SIL",
+      "web_code": 10418724
+    },
+    "images": [
+      "https://multimedia.bbycastatic.ca/multimedia/products/500x500/104/10418/10418724.jpg"
+    ]
+  },
+  {
+    "category_id": 1,
+    "name": "Rogers Google Nexus 6P 32GB",
+    "price": 0.00,
+    "description": "The Nexus 6P has it all: powerful performance, attractive design, and reassuring security. This smartphone speeds through everything you're doing thanks to its octacore processor and Android 6.0 Marshmallow. Watch videos, text, or surf the web on the brilliant 5.7\" display, and snap beautiful photos with the 12.3MP camera.",
+    "meta": {
+      "model": "NEXUS15GRY",
+      "web_code": 10394702
+    },
+    "images": [
+      "https://multimedia.bbycastatic.ca/multimedia/products/500x500/103/10394/10394702.jpg"
+    ]
+  }
+]
