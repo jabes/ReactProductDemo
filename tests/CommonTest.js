@@ -1,4 +1,3 @@
-/* jshint expr: true */
 module.exports = {
   tags: ['google'],
   'Demo test Google': function (client) {
