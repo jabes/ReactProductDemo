@@ -1,23 +1,26 @@
 import React from 'react'
-import {Link} from 'react-router'
+import Header from './Header'
+import Footer from './Footer'
 
 const App = React.createClass({
+
   propTypes: {
     children: React.PropTypes.node
   },
+
   render() {
     const {children} = this.props;
     return (
       <div>
-        <h1>App</h1>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/product">Products</Link></li>
-        </ul>
-        {children}
+        <Header/>
+        <div>
+          {children}
+        </div>
+        <Footer/>
       </div>
     )
   }
+
 });
 
 export default App
