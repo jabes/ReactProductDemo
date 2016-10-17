@@ -1,6 +1,5 @@
-/* eslint-disable no-console */
-
 import React from 'react'
+import Product from './Product'
 
 const Products = React.createClass({
 
@@ -8,12 +7,21 @@ const Products = React.createClass({
     return require('./../data/products.json');
   },
 
-  render() {
+  getProducts() {
     const data = this.getData();
-    console.log(data);
+    var products = [];
+    for (var i=0; i < data.length; i++) {
+      products.push(<Product data={data[i]} />);
+    }
+    return products;
+  },
+
+  render() {
+    const products = this.getProducts();
     return (
       <div>
-        <h2>Product Page</h2>
+        <h2>Products</h2>
+        {products}
       </div>
     )
   }
