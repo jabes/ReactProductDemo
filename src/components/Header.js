@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router'
-import LogoImg from '../assets/images/logo.svg'
-import '../assets/styles/components/header.scss'
+import LogoImg from '../images/logo.svg'
+import '../stylesheets/components/header.scss'
 
 const Header = React.createClass({
 

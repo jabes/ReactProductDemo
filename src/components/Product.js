@@ -1,5 +1,5 @@
 import React from 'react'
-import '../assets/styles/components/product.scss'
+import '../stylesheets/components/product.scss'
 
 const Product = React.createClass({
 
