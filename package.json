@@ -19,6 +19,9 @@
     "node-sass": "3.10.1",
     "autoprefixer": "6.5.1",
     "jasmine": "2.5.2",
+    "nightwatch": "0.9.8",
+    "selenium-standalone": "5.7.2",
+    "chromedriver": "2.24.1",
     "eslint": "3.8.0",
     "eslint-loader": "1.5.0",
     "eslint-config-eslint": "3.0.0",
@@ -35,10 +38,13 @@
   },
 
   "scripts": {
+    "postinstall": "selenium-standalone install",
     "start": "webpack-dev-server --inline --hot",
     "build": "webpack --progress --display-error-details",
     "watch": "webpack --watch",
-    "test": "jasmine",
+    "test:unit": "jasmine",
+    "test:e2e": "nightwatch",
+    "test": "npm run test:unit && npm run test:e2e",
     "lint": "eslint src --debug"
   },
 
