@@ -3,6 +3,7 @@
 .*
 !.gitignore
 !.editorconfig
+!.eslint
 
 dist/
 reports/
