@@ -1,6 +1,6 @@
 [
   {
-    "category_id": 1,
+    "categoryId": 1,
     "name": "Fido LG G5 32GB Smartphone",
     "price": 49.99,
     "discount": 0.00,
@@ -14,7 +14,7 @@
     ]
   },
   {
-    "category_id": 1,
+    "categoryId": 1,
     "name": "Rogers Google Nexus 6P 32GB",
     "price": 0.00,
     "discount": 0.00,
@@ -28,7 +28,7 @@
     ]
   },
   {
-    "category_id": 11,
+    "categoryId": 11,
     "name": "Samsung - 4.2 Cu. Ft. 9-Cycle High-Efficiency Steam Front-Loading Washer - Platinum",
     "price": 999.99,
     "discount": 350.00,

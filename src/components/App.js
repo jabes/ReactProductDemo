@@ -36,7 +36,7 @@ const App = React.createClass({
             />
           </aside>
           <main className="body">
-            <ProductCards/>
+            <ProductCards currentCategory={this.state.currentCategory} />
           </main>
         </section>
         <Footer/>

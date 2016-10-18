@@ -10,7 +10,6 @@ const ProductCard = React.createClass({
     const {name} = this.props.data;
     const {price} = this.props.data;
     const {discount} = this.props.data;
-    // const {description} = this.props.data;
     const {images} = this.props.data;
     return (
       <div className="product-card">

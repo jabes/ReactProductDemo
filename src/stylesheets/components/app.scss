@@ -1,6 +1,12 @@
 html {
   font-family: "Comic Sans MS", cursive, sans-serif;
   height: 100%;
+  box-sizing: border-box;
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
 
   body {
     margin: 0;

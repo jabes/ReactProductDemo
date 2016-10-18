@@ -1,12 +1,14 @@
+$card-margin: 5px;
+
 .product-cards {
   display: flex;
   flex-direction: row;
 
   .product-card {
-    flex: 1 1 auto;
-    width: (100% / 3);
+    flex: 0 0 auto;
+    width: calc(#{(100% / 3)} - #{$card-margin * 2});
     height: percentage(0); // Prevent height match with other flex items
-    margin: 5px;
+    margin: $card-margin;
     padding: 20px;
     background: #FFFFFF;
     border-radius: 5px;
