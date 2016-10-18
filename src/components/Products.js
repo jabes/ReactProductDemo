@@ -19,7 +19,7 @@ const Products = React.createClass({
   render() {
     const products = this.getProducts();
     return (
-      <div>
+      <div className="products">
         {products}
       </div>
     )

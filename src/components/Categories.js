@@ -19,11 +19,9 @@ const Categories = React.createClass({
   render() {
     const categories = this.getCategories();
     return (
-      <ul>
-        {categories.map((category, i)=> {
-          return <li key={i}>{category}</li>;
-        })}
-      </ul>
+      <nav>
+        {categories}
+      </nav>
     )
   }
 

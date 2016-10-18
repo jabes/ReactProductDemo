@@ -14,16 +14,16 @@ const App = React.createClass({
   render() {
     // const {children} = this.props;
     return (
-      <div>
+      <div className="container">
         <Header/>
-        <div>
+        <section className="content">
           <aside className="sidebar">
-            <nav>
-              <Categories/>
-            </nav>
+            <Categories/>
           </aside>
-          <Products/>
-        </div>
+          <main className="body">
+            <Products/>
+          </main>
+        </section>
         <Footer/>
       </div>
     )
