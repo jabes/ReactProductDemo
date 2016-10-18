@@ -1,0 +1,41 @@
+.products {
+  display: flex;
+  flex-direction: row;
+
+  .product {
+    flex: 1 1 auto;
+    width: (100% / 3);
+    height: percentage(0); // Prevent height match with other flex items
+    margin: 5px;
+    padding: 20px;
+    background: #FFFFFF;
+    border-radius: 5px;
+
+    h2 {
+      font-size: 1.2em;
+      margin: 0 0 10px 0;
+    }
+
+    p {
+      span.price {
+        display: block;
+        font-size: 1.8em;
+      }
+      span.sale {
+        display: block;
+        font-size: .8em;
+        strong,
+        em {
+          display: block;
+        }
+        strong {
+          color: #E82C0C;
+        }
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}
