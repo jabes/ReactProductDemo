@@ -1,19 +1,62 @@
 @import '../variables';
+@import '../mixins';
 
 header {
-  width: 100%;
-  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: $header-height;
+  padding: 0 15px;
   background: $color-brand-blue;
 
   a.logo {
-    float: left;
-    display: block;
-    height: 100%;
-    padding: 15px;
+    flex: 0 0 auto;
+    display: inline-block;
+    width: auto;
+    height: 50px;
 
     img {
-      display: block;
       height: 100%;
+    }
+  }
+
+  button.hamburger {
+    flex: 0 0 auto;
+    display: inline-block;
+    width: 40px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    outline: none;
+    position: relative;
+    @include breakpoint(tablet) {
+      display: none;
+    }
+
+    &.menu-open {
+      span {
+        &.bun {
+          &.top { top: 50%; transform: translateY(-3px) rotate(45deg); }
+          &.bottom { bottom: 50%; transform: translateY(3px) rotate(-45deg); }
+        }
+        &.patty {
+          display: none;
+        }
+      }
+    }
+
+    span {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: $color-brand-yellow;
+      &.bun.top { top: 0; }
+      &.bun.bottom { bottom: 0; }
+      &.patty {
+        top: calc(50% - 3px);
+      }
     }
   }
 }

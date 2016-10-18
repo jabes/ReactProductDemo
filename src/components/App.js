@@ -13,30 +13,39 @@ const App = React.createClass({
 
   getInitialState() {
     return {
-      currentCategory: 1
+      currentCategory: 1,
+      menuOpen: false
     };
   },
 
-  categoryClickHandler(categoryId) {
+  setCurrentCategory(categoryId) {
     this.setState({
       currentCategory: categoryId
     });
   },
 
+  toggleMenu() {
+    this.setState({
+      menuOpen: !this.state.menuOpen
+    });
+  },
+
   render() {
-    // const {children} = this.props;
     return (
       <div className="container">
-        <Header/>
+        <Header
+          menuOpen={this.state.menuOpen}
+          onHamburgerClick={this.toggleMenu}
+        />
         <section className="content">
-          <aside className="sidebar">
+          <aside className={`sidebar menu-${this.state.menuOpen ? 'open' : 'closed'}`}>
             <Categories
               currentCategory={this.state.currentCategory}
-              onCategoryClick={this.categoryClickHandler}
+              onCategoryClick={this.setCurrentCategory}
             />
           </aside>
-          <main className="body">
-            <ProductCards currentCategory={this.state.currentCategory} />
+          <main className={`body menu-${this.state.menuOpen ? 'open' : 'closed'}`}>
+            <ProductCards currentCategory={this.state.currentCategory}/>
           </main>
         </section>
         <Footer/>
