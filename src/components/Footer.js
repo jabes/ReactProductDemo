@@ -5,7 +5,10 @@ const Footer = React.createClass({
 
   render() {
     return (
-      <footer></footer>
+      <footer>
+        // Q. What kind of shorts do clouds wear?
+        // A. Thunderwear
+      </footer>
     )
   }
 
