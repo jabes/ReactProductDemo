@@ -1,17 +1,21 @@
-$card-margin: 5px;
+@import "../variables";
+@import "../mixins";
 
 .product-cards {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 
   .product-card {
     flex: 0 0 auto;
-    width: calc(#{(100% / 3)} - #{$card-margin * 2});
+    width: calc(100% - #{$card-margin * 2});
     height: percentage(0); // Prevent height match with other flex items
     margin: $card-margin;
     padding: 20px;
     background: #FFFFFF;
     border-radius: 5px;
+    @include breakpoint(tablet) { width: calc(#{(100% / 2)} - #{$card-margin * 2}); }
+    @include breakpoint(desktop) { width: calc(#{(100% / 3)} - #{$card-margin * 2}); }
 
     h2 {
       font-size: 1.2em;
@@ -20,10 +24,16 @@ $card-margin: 5px;
 
     p {
       span.price {
-        display: block;
+        display: inline-block;
         font-size: 1.8em;
+        margin-right: 10px;
       }
-      span.sale {
+      span.monthly {
+        display: inline;
+        white-space: nowrap;
+        font-size: .75em;
+      }
+      span.discount {
         display: block;
         font-size: .8em;
         strong,

@@ -10,19 +10,21 @@ const ProductCard = React.createClass({
     const {name} = this.props.data;
     const {price} = this.props.data;
     const {discount} = this.props.data;
+    const {monthly} = this.props.data;
     const {images} = this.props.data;
     return (
       <div className="product-card">
         <h2>{name}</h2>
         <p>
           <span className="price">{`$${parseFloat(price - discount)}`}</span>
+          {monthly ? <span className="monthly">{`/mo for ${monthly} months`}</span> : null}
           {discount ?
-            <span className="sale">
+            <span className="discount">
               <strong>ON SALE!</strong>
               <em>{`SAVE $${discount} (Reg. $${price})`}</em>
             </span> : null}
         </p>
-        <img src={images[0]} />
+        <img src={images[0]}/>
       </div>
     )
   }

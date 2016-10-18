@@ -1,3 +1,5 @@
+@import "../mixins";
+
 html {
   font-family: "Comic Sans MS", cursive, sans-serif;
   height: 100%;
@@ -20,11 +22,13 @@ html {
           flex-direction: row;
 
           aside.sidebar {
-            flex-grow: 1;
-            width: 30%;
-            min-width: 200px;
-            max-width: 300px;
             background: #222222;
+            @include breakpoint(tablet) {
+              flex-grow: 1;
+              width: 30%;
+              min-width: 200px;
+              max-width: 300px;
+            }
 
             nav {
               a {
@@ -46,10 +50,12 @@ html {
           }
 
           main.body {
-            flex-grow: 1;
-            width: 70%;
             padding: 30px;
             background: #EEEEEE;
+            @include breakpoint(tablet) {
+              flex-grow: 1;
+              width: 70%;
+            }
           }
         }
       }
