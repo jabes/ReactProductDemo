@@ -1,0 +1,23 @@
+p.product-price {
+  span.cost {
+    display: inline-block;
+    font-size: 1.8em;
+    margin-right: 10px;
+  }
+  span.monthly {
+    display: inline;
+    white-space: nowrap;
+    font-size: .75em;
+  }
+  span.discount {
+    display: block;
+    font-size: .8em;
+    strong,
+    em {
+      display: block;
+    }
+    strong {
+      color: #E82C0C;
+    }
+  }
+}

@@ -3,17 +3,19 @@ import Header from './Header'
 import Footer from './Footer'
 import Categories from './Categories'
 import ProductCards from './ProductCards'
+import ProductModal from './ProductModal'
 import '../stylesheets/components/app.scss'
 
 const App = React.createClass({
 
-  propTypes: {
-    children: React.PropTypes.node
-  },
+  // propTypes: {
+  //   children: React.PropTypes.node
+  // },
 
   getInitialState() {
     return {
       currentCategory: 1,
+      currentProduct: null,
       menuOpen: false
     };
   },
@@ -21,6 +23,12 @@ const App = React.createClass({
   setCurrentCategory(categoryId) {
     this.setState({
       currentCategory: categoryId
+    });
+  },
+
+  setCurrentProduct(product) {
+    this.setState({
+      currentProduct: product
     });
   },
 
@@ -45,10 +53,14 @@ const App = React.createClass({
             />
           </aside>
           <main className={`body menu-${this.state.menuOpen ? 'open' : 'closed'}`}>
-            <ProductCards currentCategory={this.state.currentCategory}/>
+            <ProductCards
+              currentCategory={this.state.currentCategory}
+              onProductCardClick={this.setCurrentProduct}
+            />
           </main>
         </section>
         <Footer/>
+        <ProductModal currentProduct={this.state.currentProduct} />
       </div>
     )
   }

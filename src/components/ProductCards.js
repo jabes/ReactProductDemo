@@ -5,7 +5,8 @@ import '../stylesheets/components/product-cards.scss'
 const ProductsCards = React.createClass({
 
   propTypes: {
-    currentCategory: React.PropTypes.number
+    currentCategory: React.PropTypes.number,
+    onProductCardClick: React.PropTypes.func
   },
 
   getData() {
@@ -17,7 +18,11 @@ const ProductsCards = React.createClass({
     var productCards = [];
     for (var i=0; i < data.length; i++) {
       if (this.props.currentCategory === data[i]['categoryId']) {
-        productCards.push(<ProductCard key={i} data={data[i]} />);
+        productCards.push(<ProductCard
+          key={i}
+          data={data[i]}
+          onProductCardClick={this.props.onProductCardClick}
+        />);
       }
     }
     return productCards;

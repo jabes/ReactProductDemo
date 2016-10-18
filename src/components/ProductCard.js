@@ -1,29 +1,25 @@
 import React from 'react'
+import ProductPrice from './ProductPrice'
 
 const ProductCard = React.createClass({
 
   propTypes: {
-    data: React.PropTypes.object
+    data: React.PropTypes.object,
+    onProductCardClick: React.PropTypes.func
+  },
+
+  handleClick: function (id) {
+    this.props.onProductCardClick(id);
   },
 
   render() {
     const {name} = this.props.data;
-    const {price} = this.props.data;
-    const {discount} = this.props.data;
-    const {monthly} = this.props.data;
     const {images} = this.props.data;
+    const boundClick = this.handleClick.bind(this, this.props.data);
     return (
-      <div className="product-card">
+      <div className="product-card" onClick={boundClick}>
         <h2>{name}</h2>
-        <p>
-          <span className="price">{`$${parseFloat(price - discount)}`}</span>
-          {monthly ? <span className="monthly">{`/mo for ${monthly} months`}</span> : null}
-          {discount ?
-            <span className="discount">
-              <strong>ON SALE!</strong>
-              <em>{`SAVE $${discount} (Reg. $${price})`}</em>
-            </span> : null}
-        </p>
+        <ProductPrice product={this.props.data}/>
         <img src={images[0]}/>
       </div>
     )

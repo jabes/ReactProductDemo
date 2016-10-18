@@ -1,0 +1,39 @@
+@import "../mixins";
+
+.product-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .8);
+
+  .modal-window {
+    position: absolute;
+    top: 4vw;
+    left: 4vw;
+    right: 4vw;
+    bottom: 4vw;
+    padding: 4vw;
+    background: #FFFFFF;
+    overflow: auto;
+
+    h2 {
+      font-size: 1.2em;
+      margin: 0 0 10px 0;
+    }
+
+    img {
+      @include breakpoint(tablet) {
+        float: left;
+        width: 25%;
+        margin-right: 50px;
+      }
+      @include breakpoint(mobileonly) {
+        display: block;
+        width: 75%;
+        margin: 30px auto;
+      }
+    }
+  }
+}
