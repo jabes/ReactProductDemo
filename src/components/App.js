@@ -2,7 +2,7 @@ import React from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import Categories from './Categories'
-import Products from './Products'
+import ProductCards from './ProductCards'
 import '../stylesheets/components/app.scss'
 
 const App = React.createClass({
@@ -21,7 +21,7 @@ const App = React.createClass({
             <Categories/>
           </aside>
           <main className="body">
-            <Products/>
+            <ProductCards/>
           </main>
         </section>
         <Footer/>

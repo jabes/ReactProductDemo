@@ -1,8 +1,8 @@
-.products {
+.product-cards {
   display: flex;
   flex-direction: row;
 
-  .product {
+  .product-card {
     flex: 1 1 auto;
     width: (100% / 3);
     height: percentage(0); // Prevent height match with other flex items

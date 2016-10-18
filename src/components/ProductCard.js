@@ -1,7 +1,6 @@
 import React from 'react'
-import '../stylesheets/components/product.scss'
 
-const Product = React.createClass({
+const ProductCard = React.createClass({
 
   propTypes: {
     data: React.PropTypes.object
@@ -14,7 +13,7 @@ const Product = React.createClass({
     // const {description} = this.props.data;
     const {images} = this.props.data;
     return (
-      <div className="product">
+      <div className="product-card">
         <h2>{name}</h2>
         <p>
           <span className="price">{`$${parseFloat(price - discount)}`}</span>
@@ -31,4 +30,4 @@ const Product = React.createClass({
 
 });
 
-export default Product
+export default ProductCard
