@@ -40,9 +40,11 @@ html {
                 &:not(:last-child) {
                   border-bottom: 1px solid #444444;
                 }
+                &.active-true,
                 &:hover {
                   background: #EEEEEE;
                   color: #222222;
+                  border-color: #CCCCCC;
                 }
               }
             }

@@ -15,5 +15,8 @@
     "eslint:recommended",
     "plugin:import/recommended",
     "plugin:react/recommended"
-  ]
+  ],
+  "rules": {
+    "no-console": 0
+  }
 }

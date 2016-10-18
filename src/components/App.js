@@ -11,6 +11,18 @@ const App = React.createClass({
     children: React.PropTypes.node
   },
 
+  getInitialState() {
+    return {
+      currentCategory: 1
+    };
+  },
+
+  categoryClickHandler(categoryId) {
+    this.setState({
+      currentCategory: categoryId
+    });
+  },
+
   render() {
     // const {children} = this.props;
     return (
@@ -18,7 +30,10 @@ const App = React.createClass({
         <Header/>
         <section className="content">
           <aside className="sidebar">
-            <Categories/>
+            <Categories
+              currentCategory={this.state.currentCategory}
+              onCategoryClick={this.categoryClickHandler}
+            />
           </aside>
           <main className="body">
             <ProductCards/>
