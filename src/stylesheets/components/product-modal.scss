@@ -8,6 +8,23 @@
   height: 100%;
   background: rgba(0, 0, 0, .8);
 
+  button.close-modal {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    border: none;
+    background: #FFFFFF;
+    color: #222222;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+
   .modal-window {
     position: absolute;
     top: 4vw;

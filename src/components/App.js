@@ -60,7 +60,10 @@ const App = React.createClass({
           </main>
         </section>
         <Footer/>
-        <ProductModal currentProduct={this.state.currentProduct} />
+        <ProductModal
+          currentProduct={this.state.currentProduct}
+          onModalClose={this.setCurrentProduct}
+        />
       </div>
     )
   }
