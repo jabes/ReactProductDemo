@@ -30,8 +30,19 @@ header {
     border: none;
     outline: none;
     position: relative;
+    cursor: pointer;
+
     @include breakpoint(tablet) {
       display: none;
+    }
+
+    &:hover {
+      span {
+        &.bun {
+          &.top { transform: translateY(-3px) rotate(5deg); }
+          &.bottom { transform: translateY(3px) rotate(-5deg); }
+        }
+      }
     }
 
     &.menu-open {
@@ -52,6 +63,7 @@ header {
       width: 100%;
       height: 6px;
       background: $color-brand-yellow;
+      transition: transform 500ms ease-out;
       &.bun.top { top: 0; }
       &.bun.bottom { bottom: 0; }
       &.patty {
