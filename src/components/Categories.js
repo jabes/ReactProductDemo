@@ -19,14 +19,11 @@ const Categories = React.createClass({
   },
 
   getApiData() {
-    const fetchUrl = require("fetch").fetchUrl;
     const apiPath = 'http://www.bestbuy.ca/api/v2/json/category/departments';
-    fetchUrl(apiPath, function (error, meta, body) {
-      if (!error) {
-        this.setState({
-          categories: body
-        });
-      }
+    window.fetch(apiPath).then(function (response) {
+      this.setState({
+        categories: response
+      });
     });
   },
 

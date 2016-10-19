@@ -20,20 +20,17 @@ const ProductsCards = React.createClass({
   },
 
   getApiData() {
-    const fetchUrl = require("fetch").fetchUrl;
     const apiPath = 'http://www.bestbuy.ca/api/v2/json/search?categoryid=departments';
-    fetchUrl(apiPath, function (error, meta, body) {
-      if (!error) {
-        this.setState({
-          products: body
-        });
-      }
+    window.fetch(apiPath).then(function (response) {
+      this.setState({
+        products: response
+      });
     });
   },
 
   getProductCards() {
     var productCards = [];
-    for (var i=0; i < this.state.products.length; i++) {
+    for (var i = 0; i < this.state.products.length; i++) {
       if (this.props.currentCategory === this.state.products[i]['categoryId']) {
         productCards.push(<ProductCard
           key={i}
