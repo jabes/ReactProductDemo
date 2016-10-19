@@ -1,15 +1,11 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import {Router, Route, IndexRoute, hashHistory} from 'react-router'
-
+import {Router, Route, hashHistory} from 'react-router'
 import App from './components/App'
-import ProductCards from './components/ProductCards'
 
 ReactDom.render(
   <Router history={hashHistory}>
-    <Route path="/" component={App}>
-      <IndexRoute component={ProductCards}/>
-    </Route>
+    <Route path="/" component={App}/>
   </Router>,
-  document.getElementById('app')
+  document.getElementById('root')
 );

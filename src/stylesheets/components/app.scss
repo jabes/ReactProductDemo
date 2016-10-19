@@ -1,113 +1,73 @@
+@import "../variables";
 @import "../mixins";
+@import "../common";
 
-html {
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  height: 100%;
-  box-sizing: border-box;
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
-  }
+#root {
+  .container {
 
-  body {
-    margin: 0;
-    min-height: 100%;
+    section.content {
+      @include breakpoint(tablet) {
+        display: flex;
+        flex-direction: row;
+      }
 
-    .btn {
-      display: inline-block;
-      @include breakpoint(mobileonly) { width: 100%; }
-      background: transparent;
-      border: none;
-      border-radius: 4px;
-      padding: 15px 20px;
-      font-weight: bold;
-      cursor: pointer;
-
-      &.yellow {
-        background: $color-brand-yellow;
-        border: 1px solid darken($color-brand-yellow, 5%);
-        border-top: none;
-        border-bottom-width: 2px;
-        color: #222222;
-        &:hover {
-          background: darken($color-brand-yellow, 2%);
-          border-color: darken($color-brand-yellow, 10%);
+      aside.sidebar {
+        background: #222222;
+        @include breakpoint(mobileonly) {
+          position: fixed;
+          top: $header-height;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          &.menu-closed {
+            display: none;
+          }
         }
-        &:active {
-          transform: translateY(1px);
+        @include breakpoint(tablet) {
+          flex-grow: 1;
+          width: 30%;
+          min-width: 200px;
+          max-width: 300px;
+        }
+
+        nav {
+          @include breakpoint(mobileonly) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+          }
+          a {
+            display: block;
+            padding: 12px 18px;
+            text-decoration: none;
+            color: #999999;
+            &:not(:last-child) {
+              border-bottom: 1px solid #444444;
+            }
+            &.active-true,
+            &:hover {
+              background: #EEEEEE;
+              color: #222222;
+              border-color: #CCCCCC;
+            }
+          }
         }
       }
-    }
 
-    #app {
-      .container {
-
-        section.content {
-          @include breakpoint(tablet) {
-            display: flex;
-            flex-direction: row;
+      main.body {
+        padding: 30px;
+        background: #EEEEEE;
+        @include breakpoint(mobileonly) {
+          &.menu-open {
+            display: none;
           }
-
-          aside.sidebar {
-            background: #222222;
-            @include breakpoint(mobileonly) {
-              position: fixed;
-              top: $header-height;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              &.menu-closed {
-                display: none;
-              }
-            }
-            @include breakpoint(tablet) {
-              flex-grow: 1;
-              width: 30%;
-              min-width: 200px;
-              max-width: 300px;
-            }
-
-            nav {
-              @include breakpoint(mobileonly) {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                overflow: auto;
-              }
-              a {
-                display: block;
-                padding: 12px 18px;
-                text-decoration: none;
-                color: #999999;
-                &:not(:last-child) {
-                  border-bottom: 1px solid #444444;
-                }
-                &.active-true,
-                &:hover {
-                  background: #EEEEEE;
-                  color: #222222;
-                  border-color: #CCCCCC;
-                }
-              }
-            }
-          }
-
-          main.body {
-            padding: 30px;
-            background: #EEEEEE;
-            @include breakpoint(mobileonly) {
-              &.menu-open {
-                display: none;
-              }
-            }
-            @include breakpoint(tablet) {
-              flex-grow: 1;
-              width: 70%;
-            }
-          }
+        }
+        @include breakpoint(tablet) {
+          flex-grow: 1;
+          width: 70%;
         }
       }
     }
