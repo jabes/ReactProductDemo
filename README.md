@@ -2,10 +2,10 @@
 
 #### Featured Technologies
 
+* React
 * Webpack
-* PostCSS/Autoprefixer
 * Babel/ES6
-* React/Redux
+* PostCSS/Autoprefixer
 
 #### How To Use
 
