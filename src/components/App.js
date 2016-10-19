@@ -8,10 +8,6 @@ import '../stylesheets/components/app.scss'
 
 const App = React.createClass({
 
-  // propTypes: {
-  //   children: React.PropTypes.node
-  // },
-
   getInitialState() {
     return {
       currentCategory: 1,

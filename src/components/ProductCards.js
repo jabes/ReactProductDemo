@@ -9,18 +9,35 @@ const ProductsCards = React.createClass({
     onProductCardClick: React.PropTypes.func
   },
 
-  getData() {
-    return require('./../data/products.json');
+  getInitialState() {
+    return {
+      products: []
+    };
+  },
+
+  componentDidMount() {
+    this.getApiData();
+  },
+
+  getApiData() {
+    const fetchUrl = require("fetch").fetchUrl;
+    const apiPath = 'http://www.bestbuy.ca/api/v2/json/search?categoryid=departments';
+    fetchUrl(apiPath, function (error, meta, body) {
+      if (!error) {
+        this.setState({
+          products: body
+        });
+      }
+    });
   },
 
   getProductCards() {
-    const data = this.getData();
     var productCards = [];
-    for (var i=0; i < data.length; i++) {
-      if (this.props.currentCategory === data[i]['categoryId']) {
+    for (var i=0; i < this.state.products.length; i++) {
+      if (this.props.currentCategory === this.state.products[i]['categoryId']) {
         productCards.push(<ProductCard
           key={i}
-          data={data[i]}
+          data={this.state.products[i]}
           onProductCardClick={this.props.onProductCardClick}
         />);
       }

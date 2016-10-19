@@ -16,6 +16,7 @@ const excludePaths = [
 ];
 
 var config = {
+  target: 'node',
   entry: [
     path.resolve(srcPath, 'index')
   ],
@@ -30,7 +31,6 @@ var config = {
     ],
     loaders: [
       {test: /\.js$/, loader: 'babel', exclude: excludePaths},
-      {test: /\.json$/, loader: 'json'},
       {test: /\.css$/, loader: 'style!css!postcss'},
       {test: /\.scss$/, loader: 'style!css!postcss!sass'},
       {test: /\.(jpe?g|png|gif|svg)$/i, loader: 'url?limit=10000!img?progressive=true' }

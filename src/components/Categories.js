@@ -8,17 +8,34 @@ const Categories = React.createClass({
     onCategoryClick: React.PropTypes.func
   },
 
-  getData() {
-    return require('./../data/categories.json');
+  getInitialState() {
+    return {
+      categories: []
+    };
+  },
+
+  componentDidMount() {
+    this.getApiData();
+  },
+
+  getApiData() {
+    const fetchUrl = require("fetch").fetchUrl;
+    const apiPath = 'http://www.bestbuy.ca/api/v2/json/category/departments';
+    fetchUrl(apiPath, function (error, meta, body) {
+      if (!error) {
+        this.setState({
+          categories: body
+        });
+      }
+    });
   },
 
   getCategories() {
-    const data = this.getData();
     var categories = [];
-    for (var i = 0; i < data.length; i++) {
+    for (var i = 0; i < this.state.categories; i++) {
       categories.push(<Category
         key={i}
-        data={data[i]}
+        data={this.state.categories[i]}
         currentCategory={this.props.currentCategory}
         onCategoryClick={this.props.onCategoryClick}
       />);
