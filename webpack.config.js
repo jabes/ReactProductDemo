@@ -16,7 +16,6 @@ const excludePaths = [
 ];
 
 var config = {
-  target: 'node',
   entry: [
     path.resolve(srcPath, 'index')
   ],
