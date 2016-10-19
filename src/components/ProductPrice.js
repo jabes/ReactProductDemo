@@ -8,17 +8,16 @@ const ProductPrice = React.createClass({
   },
 
   render() {
-    const {price} = this.props.product;
-    const {discount} = this.props.product;
-    const {monthly} = this.props.product;
+    const {regularPrice, salePrice} = this.props.product;
+    const discountPrice = parseFloat(regularPrice - salePrice).toFixed(2);
+    const isOnSale = regularPrice !== salePrice;
     return (
       <p className="product-price">
-        <span className="cost">{`$${parseFloat(price - discount)}`}</span>
-        {monthly ? <span className="monthly">{`/mo for ${monthly} months`}</span> : null}
-        {discount ?
+        <span className="cost">{`$${regularPrice}`}</span>
+        {isOnSale ?
           <span className="discount">
             <strong>ON SALE!</strong>
-            <em>{`SAVE $${discount} (Reg. $${price})`}</em>
+            <em>{`SAVE $${discountPrice} (Reg. $${regularPrice})`}</em>
           </span> : null}
       </p>
     )

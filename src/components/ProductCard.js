@@ -1,4 +1,5 @@
 import React from 'react'
+import Jsonp from 'jsonp'
 import ProductPrice from './ProductPrice'
 
 const ProductCard = React.createClass({
@@ -8,19 +9,39 @@ const ProductCard = React.createClass({
     onProductCardClick: React.PropTypes.func
   },
 
-  handleClick: function (id) {
-    this.props.onProductCardClick(id);
+  getInitialState() {
+    return {
+      product: {}
+    };
+  },
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState && prevState.product.sku !== this.state.product.sku) {
+      this.props.onProductCardClick(this.state.product);
+    }
+  },
+
+  getProductDetails(sku) {
+    let $ = this;
+    const apiPath = `http://www.bestbuy.ca/api/v2/json/product/${sku}`;
+    Jsonp(apiPath, function (error, response) {
+      if (!error) {
+        $.setState({
+          product: response
+        });
+      }
+    });
   },
 
   render() {
-    const {name} = this.props.data;
-    const {images} = this.props.data;
-    const boundClick = this.handleClick.bind(this, this.props.data);
+    const product = this.props.data;
+    const {sku, name, highResImage} = product;
+    const boundClick = this.getProductDetails.bind(this, sku);
     return (
       <div className="product-card" onClick={boundClick}>
         <h2>{name}</h2>
-        <ProductPrice product={this.props.data}/>
-        <img src={images[0]}/>
+        <ProductPrice product={product}/>
+        <img src={highResImage}/>
       </div>
     )
   }

@@ -1,11 +1,12 @@
 import React from 'react'
+import Jsonp from 'jsonp'
 import ProductCard from './ProductCard'
 import '../stylesheets/components/product-cards.scss'
 
 const ProductsCards = React.createClass({
 
   propTypes: {
-    currentCategory: React.PropTypes.number,
+    currentCategory: React.PropTypes.object,
     onProductCardClick: React.PropTypes.func
   },
 
@@ -16,28 +17,51 @@ const ProductsCards = React.createClass({
   },
 
   componentDidMount() {
-    this.getApiData();
+    this.getAllProducts();
   },
 
-  getApiData() {
-    const apiPath = 'http://www.bestbuy.ca/api/v2/json/search?categoryid=departments';
-    window.fetch(apiPath).then(function (response) {
-      this.setState({
-        products: response
-      });
+  componentDidUpdate(prevProps) {
+    if (prevProps && prevProps.currentCategory !== this.props.currentCategory) {
+      if (this.props.currentCategory) {
+        this.getCategoryProducts(this.props.currentCategory.id);
+      } else {
+        this.getAllProducts();
+      }
+    }
+  },
+
+  getAllProducts() {
+    let $ = this;
+    const apiPath = 'http://www.bestbuy.ca/api/v2/json/search';
+    Jsonp(apiPath, function (error, response) {
+      if (!error) {
+        $.setState({
+          products: response.products
+        });
+      }
+    });
+  },
+
+  getCategoryProducts(categoryId) {
+    let $ = this;
+    const apiPath = `http://www.bestbuy.ca/api/v2/json/search?categoryid=${categoryId}`;
+    Jsonp(apiPath, function (error, response) {
+      if (!error) {
+        $.setState({
+          products: response.products
+        });
+      }
     });
   },
 
   getProductCards() {
     var productCards = [];
     for (var i = 0; i < this.state.products.length; i++) {
-      if (this.props.currentCategory === this.state.products[i]['categoryId']) {
-        productCards.push(<ProductCard
-          key={i}
-          data={this.state.products[i]}
-          onProductCardClick={this.props.onProductCardClick}
-        />);
-      }
+      productCards.push(<ProductCard
+        key={i}
+        data={this.state.products[i]}
+        onProductCardClick={this.props.onProductCardClick}
+      />);
     }
     return productCards;
   },

@@ -1,10 +1,11 @@
 import React from 'react'
+import Jsonp from 'jsonp'
 import Category from './Category'
 
 const Categories = React.createClass({
 
   propTypes: {
-    currentCategory: React.PropTypes.number,
+    currentCategory: React.PropTypes.object,
     onCategoryClick: React.PropTypes.func
   },
 
@@ -19,17 +20,20 @@ const Categories = React.createClass({
   },
 
   getApiData() {
+    let $ = this;
     const apiPath = 'http://www.bestbuy.ca/api/v2/json/category/departments';
-    window.fetch(apiPath).then(function (response) {
-      this.setState({
-        categories: response
-      });
+    Jsonp(apiPath, function (error, response) {
+      if (!error) {
+        $.setState({
+          categories: response['subCategories']
+        });
+      }
     });
   },
 
   getCategories() {
     var categories = [];
-    for (var i = 0; i < this.state.categories; i++) {
+    for (var i = 0; i < this.state.categories.length; i++) {
       categories.push(<Category
         key={i}
         data={this.state.categories[i]}

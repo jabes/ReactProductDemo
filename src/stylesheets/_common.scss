@@ -26,6 +26,7 @@ body {
   padding: 15px 20px;
   font-weight: bold;
   cursor: pointer;
+  text-decoration: none;
 
   &.yellow {
     background: $color-brand-yellow;

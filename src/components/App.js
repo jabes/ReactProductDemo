@@ -10,15 +10,15 @@ const App = React.createClass({
 
   getInitialState() {
     return {
-      currentCategory: 1,
+      currentCategory: null,
       currentProduct: null,
       menuOpen: false
     };
   },
 
-  setCurrentCategory(categoryId) {
+  setCurrentCategory(category) {
     this.setState({
-      currentCategory: categoryId
+      currentCategory: category
     });
   },
 
@@ -50,6 +50,7 @@ const App = React.createClass({
           </aside>
           <main className={`body menu-${this.state.menuOpen ? 'open' : 'closed'}`}>
             <ProductCards
+              currentProduct={this.state.currentProduct}
               currentCategory={this.state.currentCategory}
               onProductCardClick={this.setCurrentProduct}
             />

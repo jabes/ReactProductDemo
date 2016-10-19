@@ -5,19 +5,19 @@ const Category = React.createClass({
 
   propTypes: {
     data: React.PropTypes.object,
-    currentCategory: React.PropTypes.number,
+    currentCategory: React.PropTypes.object,
     onCategoryClick: React.PropTypes.func
   },
 
-  handleClick: function (id) {
-    this.props.onCategoryClick(id);
+  handleClick: function (category) {
+    this.props.onCategoryClick(category);
   },
 
   render() {
-    const {id} = this.props.data;
-    const {name} = this.props.data;
-    const boundClick = this.handleClick.bind(this, id);
-    let isActive = this.props.currentCategory === id;
+    const category = this.props.data;
+    const {id, name} = category;
+    const boundClick = this.handleClick.bind(this, category);
+    let isActive = this.props.currentCategory === category;
     return (
       <Link
         className={`category-${id} active-${isActive ? 'true' : 'false'}`}

@@ -9,25 +9,26 @@ const ProductModal = React.createClass({
     onModalClose: React.PropTypes.func
   },
 
-  handleClick: function () {
+  handleClick() {
     this.props.onModalClose(null);
   },
 
   render() {
-    let product = this.props.currentProduct;
+    const product = this.props.currentProduct;
     return product ? (
       <div className="product-modal">
         <div className="modal-window">
           <button className="btn close-modal" onClick={this.handleClick}>✖</button>
-          <img src={product.images[0]}/>
+          <img src={product.highResImage}/>
           <h2>{product.name}</h2>
           <ProductPrice product={product}/>
           <ul>
-            <li>Model: {product.meta.model}</li>
-            <li>SKU: {product.meta.sku}</li>
+            <li>Model: {product.modelNumber}</li>
+            <li>SKU: {product.sku}</li>
+            <li>UPC: {product.upcNumber}</li>
           </ul>
-          <p>{product.description}</p>
-          <button className="btn yellow">BUY NOW</button>
+          <p>{product.longDescription || product.shortDescription}</p>
+          <a href={product.productUrl} className="btn yellow">BUY NOW</a>
         </div>
       </div>
     ) : null
