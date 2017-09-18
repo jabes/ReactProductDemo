@@ -6,22 +6,20 @@ const isDev = nodeEnv !== 'production';
 
 const nodeModulesPath = path.resolve(__dirname, 'node_modules');
 const srcPath = path.resolve(__dirname, 'src');
-const distPath = path.resolve(__dirname, 'dist');
-const publicPath = path.resolve(__dirname, 'public');
+const distPath = path.resolve(__dirname, 'public');
 
 const excludePaths = [
   nodeModulesPath,
   distPath,
-  publicPath
 ];
 
-var config = {
+let config = {
   entry: [
     path.resolve(srcPath, 'index')
   ],
   output: {
     path: distPath,
-    publicPath: '/dist/',
+    publicPath: '/public/',
     filename: 'bundle.js'
   },
   module: {
@@ -32,7 +30,7 @@ var config = {
       {test: /\.js$/, loader: 'babel', exclude: excludePaths},
       {test: /\.css$/, loader: 'style!css!postcss'},
       {test: /\.scss$/, loader: 'style!css!postcss!sass'},
-      {test: /\.(jpe?g|png|gif|svg)$/i, loader: 'url?limit=10000!img?progressive=true' }
+      {test: /\.(jpe?g|png|gif|svg)$/i, loader: 'url?limit=10000!img?progressive=true'}
     ]
   },
   plugins: [],
@@ -52,7 +50,7 @@ var config = {
       aggregateTimeout: 300,
       poll: 1000
     },
-    contentBase: publicPath
+    contentBase: distPath
   }
 };
 

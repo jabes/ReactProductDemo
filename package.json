@@ -1,42 +1,54 @@
 {
   "name": "bbyc-assessment",
-  "version": "0.0.0",
+  "description": "A single page web app that features Best Buy products.",
   "private": true,
-
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Justin Bull",
+    "email": "bull.justin@gmail.com",
+    "url": "http://jbull.ca/"
+  },
+  "homepage": "https://jabes.github.io/bbyc-assessment/public",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jabes/bbyc-assessment"
+  },
+  "engines": {
+    "node": "8.4.x"
+  },
   "devDependencies": {
-    "webpack": "1.13.2",
-    "webpack-dev-server": "1.16.2",
+    "autoprefixer": "6.5.1",
     "babel-core": "6.17.0",
+    "babel-loader": "6.2.5",
+    "babel-plugin-transform-runtime": "6.15.0",
     "babel-preset-es2015": "6.16.0",
     "babel-preset-react": "6.16.0",
-    "babel-plugin-transform-runtime": "6.15.0",
-    "babel-loader": "6.2.5",
+    "chromedriver": "2.24.1",
     "css-loader": "0.25.0",
-    "sass-loader": "4.0.2",
-    "style-loader": "0.13.1",
-    "postcss-loader": "1.0.0",
-    "url-loader": "0.5.7",
+    "eslint": "3.8.1",
+    "eslint-config-eslint": "3.0.0",
+    "eslint-loader": "1.6.0",
+    "eslint-plugin-import": "2.0.1",
+    "eslint-plugin-react": "6.4.1",
     "img-loader": "1.3.1",
-    "node-sass": "3.10.1",
-    "autoprefixer": "6.5.1",
     "jasmine": "2.5.2",
     "nightwatch": "0.9.8",
+    "node-sass": "3.10.1",
+    "postcss-loader": "1.0.0",
+    "sass-loader": "4.0.2",
     "selenium-standalone": "5.7.2",
-    "chromedriver": "2.24.1",
-    "eslint": "3.8.1",
-    "eslint-loader": "1.6.0",
-    "eslint-config-eslint": "3.0.0",
-    "eslint-plugin-import": "2.0.1",
-    "eslint-plugin-react": "6.4.1"
+    "style-loader": "0.13.1",
+    "url-loader": "0.5.7",
+    "webpack": "1.13.2",
+    "webpack-dev-server": "1.16.2"
   },
-
   "dependencies": {
+    "jsonp": "0.2.0",
     "react": "15.3.2",
     "react-dom": "15.3.2",
-    "react-router": "2.8.1",
-    "jsonp": "0.2.0"
+    "react-router": "2.8.1"
   },
-
   "scripts": {
     "postinstall": "selenium-standalone install",
     "start": "webpack-dev-server --inline --hot",
@@ -46,8 +58,5 @@
     "test:e2e": "nightwatch",
     "test": "npm run test:unit && npm run test:e2e",
     "lint": "eslint src --debug"
-  },
-
-  "author": "Justin Bull",
-  "license": "ISC"
+  }
 }

@@ -6,6 +6,5 @@
 !.eslintrc
 !.babelrc
 
-dist/
 reports/
 node_modules/
