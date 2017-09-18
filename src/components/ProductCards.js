@@ -32,7 +32,7 @@ const ProductsCards = React.createClass({
 
   getAllProducts() {
     let $ = this;
-    const apiPath = 'http://www.bestbuy.ca/api/v2/json/search';
+    const apiPath = 'https://www.bestbuy.ca/api/v2/json/search';
     Jsonp(apiPath, function (error, response) {
       if (!error) {
         $.setState({
@@ -44,7 +44,7 @@ const ProductsCards = React.createClass({
 
   getCategoryProducts(categoryId) {
     let $ = this;
-    const apiPath = `http://www.bestbuy.ca/api/v2/json/search?categoryid=${categoryId}`;
+    const apiPath = `https://www.bestbuy.ca/api/v2/json/search?categoryid=${categoryId}`;
     Jsonp(apiPath, function (error, response) {
       if (!error) {
         $.setState({

@@ -23,7 +23,7 @@ const ProductCard = React.createClass({
 
   getProductDetails(sku) {
     let $ = this;
-    const apiPath = `http://www.bestbuy.ca/api/v2/json/product/${sku}`;
+    const apiPath = `https://www.bestbuy.ca/api/v2/json/product/${sku}`;
     Jsonp(apiPath, function (error, response) {
       if (!error) {
         $.setState({

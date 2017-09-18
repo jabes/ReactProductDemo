@@ -27743,7 +27743,7 @@
 	  },
 	  getApiData: function getApiData() {
 	    var $ = this;
-	    var apiPath = 'http://www.bestbuy.ca/api/v2/json/category/departments';
+	    var apiPath = 'https://www.bestbuy.ca/api/v2/json/category/departments';
 	    (0, _jsonp2.default)(apiPath, function (error, response) {
 	      if (!error) {
 	        $.setState({
@@ -28498,7 +28498,7 @@
 	  },
 	  getAllProducts: function getAllProducts() {
 	    var $ = this;
-	    var apiPath = 'http://www.bestbuy.ca/api/v2/json/search';
+	    var apiPath = 'https://www.bestbuy.ca/api/v2/json/search';
 	    (0, _jsonp2.default)(apiPath, function (error, response) {
 	      if (!error) {
 	        $.setState({
@@ -28509,7 +28509,7 @@
 	  },
 	  getCategoryProducts: function getCategoryProducts(categoryId) {
 	    var $ = this;
-	    var apiPath = 'http://www.bestbuy.ca/api/v2/json/search?categoryid=' + categoryId;
+	    var apiPath = 'https://www.bestbuy.ca/api/v2/json/search?categoryid=' + categoryId;
 	    (0, _jsonp2.default)(apiPath, function (error, response) {
 	      if (!error) {
 	        $.setState({
@@ -28593,7 +28593,7 @@
 	  },
 	  getProductDetails: function getProductDetails(sku) {
 	    var $ = this;
-	    var apiPath = 'http://www.bestbuy.ca/api/v2/json/product/' + sku;
+	    var apiPath = 'https://www.bestbuy.ca/api/v2/json/product/' + sku;
 	    (0, _jsonp2.default)(apiPath, function (error, response) {
 	      if (!error) {
 	        $.setState({

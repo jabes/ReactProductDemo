@@ -21,7 +21,7 @@ const Categories = React.createClass({
 
   getApiData() {
     let $ = this;
-    const apiPath = 'http://www.bestbuy.ca/api/v2/json/category/departments';
+    const apiPath = 'https://www.bestbuy.ca/api/v2/json/category/departments';
     Jsonp(apiPath, function (error, response) {
       if (!error) {
         $.setState({
